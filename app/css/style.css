@@ -1,0 +1,25 @@
+/*
+	Форма регистрации
+*/
+.send-btn {
+	padding-top: 15px;
+}
+
+/*
+	Форма добавления нового опроса
+*/
+
+.preview {
+	text-align: center;
+	background: none;
+	border: 0px;
+	box-shadow: none;
+}
+
+.preview img {
+	height: 150px;
+}
+
+.select-answers input[type="text"] {
+	visibility: hidden;
+}

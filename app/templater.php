@@ -15,7 +15,13 @@ class Templater {
 		*/
 		$menu = file_get_contents('templates/menu.tpl');
 		$template = str_replace('{{%nav-menu%}}', $menu, $template);
-
+		// if(!isset($_SESSION['id_user'])) {
+		// 	$menu = file_get_contents('templates/menu.tpl');
+		// 	$template = str_replace('{{%nav-menu%}}', $menu, $template);
+		// } else {
+		// 	$menu = file_get_contents('templates/menu-no-login.tpl');
+		// 	$template = str_replace('{{%nav-menu%}}', $menu, $template);
+		// 	}
 		/*
 			Определяем авторизован ли пользователь. Если не авторизован выводим:
 				кнопку регистрации и кнопку авторизации

@@ -20,8 +20,8 @@ class DB {
 
 	function DQ($queryString) {
 		$test = mysqli_query($this->db, $queryString) or die(mysqli_error($this->db));
-		var_dump($test);
-		exit();
+		// var_dump($test);
+		// exit();
 		// $this->result = $this->db->query($queryString);
 		return $this->result;
 	}

@@ -1,6 +1,7 @@
 /*
 	Форма регистрации
 */
+
 .send-btn {
 	padding-top: 15px;
 }
@@ -22,4 +23,61 @@
 
 .select-answers input[type="text"] {
 	visibility: hidden;
+}
+
+/*
+menu
+*/
+
+.nav-header {
+	display: inline-block;
+	line-height: 57px;
+	font-size: 32px;
+	/* text-align: left; */
+}
+
+.nav-right {
+	float: right;
+	/* text-align: right; */
+	/* display: inline-block; */
+}
+
+.list-inline {
+	display: inline-block;
+}
+
+.img-circle {
+	height: 40px;
+}
+
+.notification-btn {
+	content: "";
+	display: block;
+	background: url("../img/svg/notifications_none.svg") no-repeat;
+	width: 24px;
+	height: 24px;
+}
+
+.settings-btn {
+	content: "";
+	display: block;
+	background: url("../img/svg/settings.svg") no-repeat;
+	width: 24px;
+	height: 24px;
+}
+
+.login-btn {
+	background-color: #4285f4;
+	border: none;
+	color: #fff;
+	padding: 8px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.reg-btn {
+	font-size: 16px;
+	margin-top: 10px;
 }

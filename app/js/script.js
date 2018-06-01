@@ -31,4 +31,15 @@ $(document).ready(function(){
 	$('.logotype').change(function(){
 		readURL(this);
 	});
+
+	// slick slider
+	$(document).on('ready', function() {
+      $(".vertical-center").slick({
+        dots: true,
+        vertical: false,
+        centerMode: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
+    });
 });

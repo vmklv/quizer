@@ -4,14 +4,7 @@
 			<a href="/">Название</a>
 		</div>
 		<div class="nav-right">
-			<ul class="list-inline">
-				<li class="nav-login">
-					<a href="#" class="btn reg-btn">Регистрация</a>
-				</li>
-				<li class="nav-login">
-					<a href="#" class="btn login-btn" data-toggle="modal" data-target="#exampleModalCenter">Вход</a>
-				</li>
-			</ul>
+			{{%enter-auth%}}
 		</div>
 	</div>
 </nav>
@@ -28,18 +21,18 @@
 			</div>
 			<div class="modal-body">
 				<div class="auth">
-					<form method="POST" action="">
+					<form method="POST" action="auth.php">
 						<div class="card card-login">
 							<div class="header">
 								<h1>Вход</h1>
 							</div>
-							<div class="col-md-10 offset-1">
+							<div class="col-md-12">
 								<input type="email" name="email" class="form-control" placeholder="адрес эл. почты" maxlength="64" required>
 							</div>
-							<div class="col-md-10 offset-1">
+							<div class="col-md-12">
 								<input type="password" name="password" class="form-control" placeholder="пароль" maxlength="64" required>
 							</div>
-							<div class="send-btn col-md-10 offset-1">
+							<div class="send-btn col-md-12">
 								<input type="hidden" name="form_token" value="true">
 								<input type="submit" class="btn btn-primary col-md-12 col-lg-12" value="Войти">
 							</div>

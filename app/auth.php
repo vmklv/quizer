@@ -18,5 +18,5 @@ if(isset($_POST['form_token'])) {
 		$title = 'Вход';
 		$content = file_get_contents('templates/auth/form.tpl');
 
-		echo $templater->templater($title, $content);
+		echo $templater->getTemplate($title, $content);
 }

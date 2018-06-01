@@ -10,6 +10,10 @@ if(isset($_POST['form_token'])) {
 	$name = htmlspecialchars($_POST['name'], ENT_QUOTES);
 	$surname = htmlspecialchars($_POST['surname'], ENT_QUOTES);
 	$errors = '';
+
+	$selUser = $objConfigs->DQ("SELECT * FROM `users` WHERE `email` = '".$email."'");
+	if($objConfigs->DN($selUser) != 0) $errors .= 'email адрес уже занят';
+
 	if(empty($email)) $errors .= 'Вы не ввели email адрес';
 	if(empty($passwd)) $errors .= 'Вы не ввели пароль';
 	if($passwd != $repasswd) $errors .= 'Введённые пароли не совпадают';
@@ -29,5 +33,5 @@ if(isset($_POST['form_token'])) {
 	$content = file_get_contents('templates/registration/form.tpl');
 	
 	// echo $objConfigs->templater($title, $content); // вызываем метод templater и передаём туда заголовок и контент
-	echo $templater->templater($title, $content);
+	echo $templater->getTemplate($title, $content);
 }

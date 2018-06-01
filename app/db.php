@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// error_reporting(-1);
+session_start();
+error_reporting(-1);
 header("Content-type: text/html; charset=utf-8");
 
 class DB {
@@ -19,10 +19,7 @@ class DB {
 	}
 
 	function DQ($queryString) {
-		$test = mysqli_query($this->db, $queryString) or die(mysqli_error($this->db));
-		// var_dump($test);
-		// exit();
-		// $this->result = $this->db->query($queryString);
+		$this->result = $this->db->query($queryString);
 		return $this->result;
 	}
 
@@ -31,6 +28,6 @@ class DB {
 	}
 
 	function DN($resultQuery) {
-		return $resultQuery->num_rows;
+		return mysqli_num_rows($resultQuery);
 	}
 }

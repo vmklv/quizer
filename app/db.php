@@ -30,4 +30,24 @@ class DB {
 	function DN($resultQuery) {
 		return mysqli_num_rows($resultQuery);
 	}
+
+	function generateWord($countSymbols, $countStrings = 1) {
+		$symbols = array('1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i','k','l','m','n','o','p','q','r','s','t','w','x','y','z');
+		$currentCountStrings = 0;
+		$words = '';
+		$word = '';
+		while($currentCountStrings < $countStrings) {
+			$currentCountSymbols = 0;
+			$word = '';
+			while($currentCountSymbols < $countSymbols) {
+				$word .= $symbols[rand(0, count($symbols) - 1)];
+				$currentCountSymbols++;
+			}
+			$words .= '|'.$word;
+			$currentCountStrings++;
+		}
+		$words = substr($words, 1);
+		$this->result = $words;
+		return $this->result;
+	}
 }

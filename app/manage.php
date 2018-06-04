@@ -54,7 +54,7 @@ class Manage {
 				$saveQuestion = $this->db->DQ("INSERT INTO `surveys_questions`(`title`,`survey_id`,`type`,`content`) VALUES('".$value."', '".$lastId."', '".$_POST['type-question'][$key]."', '".$_POST['select-values'][$key]."')");
 			}
 			
-			$result = 'Опрос успешно добавлен! <a href="manage.php">Назад к управлению опросами</a>';
+			$result = 'Опрос успешно добавлен! <a href="manage.php">К управлению опросами</a>';
 			
 		} else {
 			$form = file_get_contents('templates/manage/new.tpl');
@@ -88,7 +88,8 @@ class Manage {
 				<td>'.$countQuestions.'</td>
 				<td>'.$countSuccessed.'</td>
 				<td>
-					<a href="manage.php?type=delete&delete='.$fSurveys['id'].'" onclick="if(confirm()){return true;}else{return false;}">Удалить</a>
+				<a href="manage.php?type=delete&delete='.$fSurveys['id'].'" onclick="if(confirm()){return true;}else{return false;}">Удалить</a>
+				<a href="manage.php?type=analitic&id_survey='.$fSurveys['id'].'">Посмотреть ответы</a>
 				</td>
 			</tr>';
 
@@ -110,6 +111,42 @@ class Manage {
 		header('Location: manage.php');
 		return true;
 	}
+
+
+	function analiticSurvey() {
+		$id = (int) $_GET['id_survey'];
+		$selSurvey = $this->db->DQ("SELECT * FROM `surveys` WHERE `id` = '".$id."'");
+		$fSurvey = $this->db->DF($selSurvey);
+		$this->result = '<h2>Просмотр статистики ('.$fSurvey['title'].')</h2>';
+		$this->result .= '<table border="0" class="table"><tr>';
+		$selQuestions = $this->db->DQ("SELECT * FROM `surveys_questions` WHERE `survey_id` = '".$fSurvey['id']."' ORDER BY `id` ASC");
+		// достаём вопросы
+		while($fQuestions = $this->db->DF($selQuestions)) {
+			$this->result .= '<th>'.$fQuestions['title'].' ('.$fQuestions['type'].')</th>';
+		}
+		// достаём ответы пользователей
+		$selAnswersUsers = $this->db->DQ("SELECT DISTINCT `user_id` FROM `surveys_answers` WHERE `survey_id` = '".$fSurvey['id']."' AND `session` = '' ORDER BY `question_id` ASC");
+		while($fAnswersUsers = $this->db->DF($selAnswersUsers)) {
+			$selAnswerUser = $this->db->DQ("SELECT * FROM `surveys_answers` WHERE `survey_id` = '".$fSurvey['id']."' AND `user_id` = '".$fAnswersUsers['user_id']."' ORDER BY `question_id` ASC");
+			$this->result .= '<tr>';
+			while($fAnswersUsers = $this->db->DF($selAnswerUser)) {
+				$this->result .= '<td>'.$fAnswersUsers['answer'].'</td>';
+			}
+			$this->result .= '</tr>';
+		}
+		// достаём ответы гостей
+		$selAnswerGuests = $this->db->DQ("SELECT DISTINCT `session` FROM `surveys_answers` WHERE `survey_id` = '".$fSurvey['id']."' AND `session` != '' ORDER BY `question_id` ASC");
+		while($fAnswerGuests = $this->db->DF($selAnswerGuests)) {
+			$selAnswersGuests = $this->db->DQ("SELECT * FROM `surveys_answers` WHERE `survey_id` = '".$fSurvey['id']."' AND `session` = '".$fAnswerGuests['session']."' ORDER BY `question_id` ASC");
+			$this->result .= '<tr>';
+			while($fAnswersGuests = $this->db->DF($selAnswersGuests)) {
+				$this->result .= '<td>'.$fAnswersGuests['answer'].'</td>';
+			}
+			$this->result .= '</tr>';
+		}
+		$this->result .= '</table>';
+		return $this->result;
+	}
 }
 
 $objManage = new Manage();
@@ -119,5 +156,6 @@ $title = 'Управление опросами';
 if($_GET['type'] == 'list') $content = $objManage->listSurveys();
 elseif($_GET['type'] == 'new') $content = $objManage->newSurvey();
 elseif($_GET['type'] == 'delete') $content = $objManage->deleteSurvey();
+elseif($_GET['type'] == 'analitic') $content = $objManage->analiticSurvey();
 
 echo $templater->getTemplate($title, $content);

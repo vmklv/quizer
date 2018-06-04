@@ -2,7 +2,7 @@
 	<form method="POST" action="">
 		<div class="card card-login">
 			<div class="header">
-				<h1>Вход</h1>
+				<!-- <h1>Вход</h1> -->
 			</div>
 			<div class="col-md-10 offset-1">
 				<input type="email" name="email" class="form-control" placeholder="адрес эл. почты" maxlength="64" required>

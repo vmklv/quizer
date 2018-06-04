@@ -1,8 +1,5 @@
 <nav class="navbar">
 	<div class="container-fluid">
-		<div class="nav-header">
-			<a href="/">Название</a>
-		</div>
 		<div class="nav-right">
 			<ul class="list-inline">
 				<li class="nav-settigs">

@@ -50,7 +50,8 @@ $(document).ready(function(){
 				centerMode: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
-				autoplay: true
+				autoplay: true,
+				arrows: false
 			});
 		});
 });

@@ -1,10 +1,10 @@
 <div class="new_survey col-md-12 col-lg-12">
 	<form method="POST" action="" enctype="multipart/form-data">
-		<div class="title col-md-6 col-lg-6">
-			<label>Название опроса</label>
+		<div class="title col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+			<h1>Название вопроса</h1>
 			<input type="text" name="title" class="form-control" placeholder="Название опроса" required>
 		</div>
-		<div class="title col-md-6 col-lg-6">
+		<div class="title col-md-6 col-lg-6 col-md-offset-3">
 			<label>Тип опроса</label>
 			<select name="type" class="form-control" required>
 				<option></option>
@@ -13,15 +13,29 @@
 			</select>
 		</div>
 		<div class="private-survey-access col-md-12 col-lg-12"></div>
-		<div class="logotype col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+		<div class="logotype col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
 			<div class="field">
-				<label>Выберите логотип опроса</label>
+				<label>Логотип</label>
+				<input type="file" name="logotype" class="form-control col-md-12 col-lg-12 logotype" required>
+				
+			</div>
+			<div class="preview col-md-12 col-lg-12">
+				<img src="" alt="">
+			</div>
+		</div>
+		<div class="logotype col-md-3 col-lg-3 ">
+			<div class="field">
+				<label>Фон</label>
 				<input type="file" name="logotype" class="form-control col-md-12 col-lg-12 logotype" required>
 			</div>
-			<div class="preview col-md-12 col-lg-12"><img src="" alt=""></div>
+			<div class="preview col-md-12 col-lg-12">
+				<img src="" alt="">
+			</div>
 		</div>
 		<div class="surveys col-md-12 col-lg-12">
-			<h2>Вопросы<button type="button" class="new_question btn btn-primary btn-md">+</button></h2>
+			<h2>Вопросы
+				<button type="button" class="new_question btn btn-primary btn-md">+</button>
+			</h2>
 			<div class="first-survey col-md-12 col-lg-12">
 				<div class="name col-md-4 col-lg-4">
 					<input type="text" name="title-question[]" class="form-control" placeholder="Вопрос" required>

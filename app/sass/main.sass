@@ -6,31 +6,67 @@ $main: #4285f4 //акцентный цвет (синий)
 $bg:	#eee //цвет фона
 
 //настройки шрифта
-// @font-face
-// 	font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif
-// 	src: url(https://fonts.googleapis.com/css?family=Roboto:400,500,700)
 
 //шапка
 header
 	min-height: 60px
 	background-color: #fff
+	& .nav-header a
+		font-weight: 700
+		color: #818a91
+		font-size: 32px
+		transition: .5s
+	& a:hover
+		text-decoration: none
+		color: $main
 
-//
-body
+html, body
+	margin: 0
+  padding: 0
 	background-color: $bg
+	font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif
 
-//главная страница
-.main-card
-	min-height: 288px
+.container
 	background-color: #fff
 
-.preview
-	width: 280px
-	height: 158px
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
-	border-radius: 4px
-	border: 1px solid #dddddd
-	background-color: #ffffff
+//главная страница
+// .main-card
+// 	min-height: 288px
+// 	background-color: #fff
 
-.template-name
+
+// .preview
+// 	width: 280px
+// 	height: 158px
+// 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
+// 	border-radius: 4px
+// 	border: 1px solid #dddddd
+// 	background-color: #ffffff
+
+// .template-name
+// 	text-align: center
+
+//форма входа
+.auth
 	text-align: center
+	input
+		margin: 
+			top: 10px
+	.btn-login
+		color: #fff
+		background-color: $main
+	.login-page
+		min-height: 300px
+
+.modal-content
+	min-height: 250px
+
+//форма регистрации
+.registration
+	text-align: center
+	input
+		margin: 
+			top: 10px
+	.EULA
+		margin: 
+			top: 15px

@@ -14,56 +14,71 @@ if(!isset($_GET['survey_id'])) {
 		exit();
 	} else {
 		$fSurvey = $db->DF($selSurvey);
-		if(isset($_POST['form_token'])) {
-			if(!isset($_SESSION['id_user'])) {
-				$user_id = 0;
-				$session = $db->generateWord(12);
+		if($fSurvey['privacy'] == 1 && @$_SESSION['access'] != $fSurvey['id']) {
+			if(isset($_POST['form_token'])) {
+				$passwd = htmlspecialchars($_POST['passwd'], ENT_QUOTES);
+				if($passwd == $fSurvey['privacy_password']) {
+					$_SESSION['access'] = $fSurvey['id'];
+					header("Location: survey.php?survey_id=".$_GET['survey_id']);
+				} else exit("<script>alert('Неверный пароль. Попробуйте ещё раз');location.href='survey.php?survey_id=".$_GET['survey_id']."';</script>");
 			} else {
-				$user_id = $_SESSION['id_user'];
-				$session = '';
+				$content = file_get_contents('templates/survey/access.tpl');
 			}
-			foreach($_POST['question'] AS $key => $value) {
-				$saveData = $db->DQ("INSERT INTO `surveys_answers`(`user_id`, `question_id`, `answer`, `survey_id`,`session`) VALUES ('".$user_id."', '".$value."', '".$_POST['answer'][$key]."', '".$fSurvey['id']."','".$session."')");
-			}
-			// дописать запрос по прохождению опроса (в таблицу surveys_successed)
-			exit('<script>alert("Вы успешно прошли тест");location.href="index.php";</script>');
-
 		} else {
-			$selAcceptedSurvey = $db->DQ("SELECT * FROM `surveys_successed` WHERE `user_id` = '".$_SESSION['id_user']."' AND `survey_id` = '".$_GET['survey_id']."'");
-			if($db->DN($selAcceptedSurvey) != 0) exit('<script>alert("Вы уже проходили данный опрос");location.href="survey.php";</script>');
-
-			// каркас шаблона опроса
-			$form = file_get_contents('templates/survey/form.tpl');
-			// достаём вопросы
-			$questions = '';
-			$selQuestions = $db->DQ("SELECT * FROM `surveys_questions` WHERE `survey_id` = '".$fSurvey['id']."' ORDER BY `id` ASC");
-			while($fQuestions = $db->DF($selQuestions)) {
-				// проверяем тип ответа в вопросе и формируем нужное поле (text, int, select)
-				switch($fQuestions['type']) {
-					case 'text':
-					$answer = '<input type="text" name="answer[]" class="form-control">';
-					$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
-					break;
-					case 'number':
-					$answer = '<input type="number" name="answer[]" class="form-control">';
-					$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
-					break;
-					case 'select':
-					$answersArray = explode('|', $fQuestions['content']);
-					$answer = '<select name="answer[]" class="form-control">';
-					foreach($answersArray AS $value) {
-						$answer .= '<option value="'.$value.'">'.$value.'</option>';
-					}
-					$answer .= '</select>';
-					$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
-					break;
+			if(isset($_POST['form_token'])) {
+				if(!isset($_SESSION['id_user'])) {
+					$user_id = 0;
+					$session = $db->generateWord(12);
+				} else {
+					$user_id = $_SESSION['id_user'];
+					$session = '';
 				}
-				$questions .= '<div class="question"><div class="title">'.$fQuestions['title'].'</div><div class="answer">'.$answer.'</div></div>';
+				foreach($_POST['question'] AS $key => $value) {
+					$saveData = $db->DQ("INSERT INTO `surveys_answers`(`user_id`, `question_id`, `answer`, `survey_id`,`session`) VALUES ('".$user_id."', '".$value."', '".$_POST['answer'][$key]."', '".$fSurvey['id']."','".$session."')");
+				}
+				// таблица с прохождением опроса
+				$selAcceptedSurvey = $db->DQ("INSERT INTO `surveys_successed`(`user_id`, `survey_id`) VALUES ('".$user_id."', '".$fSurvey['id']."')");
+				exit('<script>alert("Вы успешно прошли тест");location.href="index.php";</script>');
+
+			} else {
+				// проверка проходил ли пользователь опрос (если авторизован)
+				if(isset($_SESSION['id_user'])) {
+					$selAcceptedSurvey = $db->DQ("SELECT * FROM `surveys_successed` WHERE `user_id` = '".$_SESSION['id_user']."' AND `survey_id` = '".$_GET['survey_id']."'");
+					if($db->DN($selAcceptedSurvey) != 0) exit('<script>alert("Вы уже проходили данный опрос");location.href="survey.php";</script>');
+				}
+				// каркас шаблона опроса
+				$form = file_get_contents('templates/survey/form.tpl');
+				// достаём вопросы
+				$questions = '';
+				$selQuestions = $db->DQ("SELECT * FROM `surveys_questions` WHERE `survey_id` = '".$fSurvey['id']."' ORDER BY `id` ASC");
+				while($fQuestions = $db->DF($selQuestions)) {
+					// проверяем тип ответа в вопросе и формируем нужное поле (text, int, select)
+					switch($fQuestions['type']) {
+						case 'text':
+						$answer = '<input type="text" name="answer[]" class="form-control">';
+						$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
+						break;
+						case 'number':
+						$answer = '<input type="number" name="answer[]" class="form-control">';
+						$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
+						break;
+						case 'select':
+						$answersArray = explode('|', $fQuestions['content']);
+						$answer = '<select name="answer[]" class="form-control">';
+						foreach($answersArray AS $value) {
+							$answer .= '<option value="'.$value.'">'.$value.'</option>';
+						}
+						$answer .= '</select>';
+						$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
+						break;
+					}
+					$questions .= '<div class="question"><div class="title">'.$fQuestions['title'].'</div><div class="answer">'.$answer.'</div></div>';
+				}
+				// заменяем заголовок (h2) и сами опросы
+				$form = str_replace('{{%title-survey%}}', $fSurvey['title'], $form);
+				$form = str_replace('{{%questions%}}', $questions, $form);
+				$content = $form;
 			}
-			// заменяем заголовок (h2) и сами опросы
-			$form = str_replace('{{%title-survey%}}', $fSurvey['title'], $form);
-			$form = str_replace('{{%questions%}}', $questions, $form);
-			$content = $form;
 		}
 	}
 }

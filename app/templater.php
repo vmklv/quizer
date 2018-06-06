@@ -22,7 +22,9 @@ class Templater {
 		if(isset($_SESSION['id_user'])) {
 			$selUser = $this->db->DQ("SELECT * FROM `users` WHERE `id` = '".$_SESSION['id_user']."'");
 			$fUser = $this->db->DF($selUser);
-			$formAuth = $fUser['name'].' '.$fUser['surname'].' (<a href="quit.php">Выйти</a>)';
+			// $formAuth = $fUser['name'].' '.$fUser['surname'].' (<a href="quit.php">Выйти</a>)';
+			// $template = str_replace('{{%enter-auth%}}', $formAuth, $template);
+			$formAuth = file_get_contents('templates/menu.tpl');
 			$template = str_replace('{{%enter-auth%}}', $formAuth, $template);
 		} else {
 			$formAuth = file_get_contents('templates/enter.tpl');

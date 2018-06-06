@@ -9,10 +9,12 @@
 	<title>{{%title%}}</title>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/main.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/slick/slick.css" rel="stylesheet">
 	<link href="css/slick/slick-theme.css" rel="stylesheet">
+	<link href="css/main.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	  crossorigin="anonymous">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -37,7 +39,6 @@
 	<script src="css/slick/slick.min.js"></script>
 	<script src="js/script.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-
 </body>
 
 </html>

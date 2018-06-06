@@ -2,23 +2,42 @@
 header {
   min-height: 60px;
   background-color: #fff; }
+  header .nav-header a {
+    font-weight: 700;
+    color: #818a91;
+    font-size: 32px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s; }
+  header a:hover {
+    text-decoration: none;
+    color: #4285f4; }
 
-body {
-  background-color: #eee; }
+html, body {
+  margin: 0;
+    margin-padding: 0;
+  background-color: #eee;
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif; }
 
-.main-card {
-  min-height: 288px;
+.container {
   background-color: #fff; }
 
-.preview {
-  width: 280px;
-  height: 158px;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff; }
-
-.template-name {
+.auth {
   text-align: center; }
+  .auth input {
+    margin-top: 10px; }
+  .auth .btn-login {
+    color: #fff;
+    background-color: #4285f4; }
+  .auth .login-page {
+    min-height: 300px; }
+
+.modal-content {
+  min-height: 250px; }
+
+.registration {
+  text-align: center; }
+  .registration input {
+    margin-top: 10px; }
+  .registration .EULA {
+    margin-top: 15px; }

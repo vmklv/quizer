@@ -3,18 +3,14 @@
 		<div class="nav-right">
 			<ul class="list-inline">
 				<li class="nav-settigs">
-					<a href="#">
-						<span class="settings-btn"></span>
-					</a>
+					<i class="icon fa fa-bell"></i>
 				</li>
 				<li class="nav-notification">
-					<a href="#">
-						<span class="notification-btn"></span>
-					</a>
+					<i class="icon fa fa-cog"></i>
 				</li>
 				<li class="nav-avatar">
 					<a href="#">
-						<img class="img-circle" src="../img/avatars/default.png" alt="">
+						<img class="img-circle" src="../img/avatars/default.png" alt="avatar">
 					</a>
 				</li>
 			</ul>

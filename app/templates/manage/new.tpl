@@ -1,32 +1,33 @@
-<div class="new_survey col-md-12 col-lg-12">
+<div class="wrapper new_survey col-md-12 col-lg-12">
 	<form method="POST" action="" enctype="multipart/form-data">
 		<div class="title col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
-			<h1>Название вопроса</h1>
+			<h1>Название опроса</h1>
 			<input type="text" name="title" class="form-control" placeholder="Название опроса" required>
 		</div>
-		<div class="title col-md-6 col-lg-6 col-md-offset-3">
+		<div class="privacy-settings col-md-6 col-lg-6 col-md-offset-3">
 			<label>Тип опроса</label>
-			<select name="type" class="form-control" required>
-				<option></option>
-				<option value="public">Публичный</option>
+			<select id="privacy" name="type" class="form-control" required>
+				<option selected value="public">Публичный</option>
 				<option value="private">Приватный</option>
 			</select>
 		</div>
-		<div class="private-survey-access col-md-12 col-lg-12"></div>
+		<div class="private-survey-access col-md-12 col-lg-12">
+			<input type="password" name="privacy-passwd" class="privacy-passwd form-control" placeholder="Пароль для доступа">
+		</div>
 		<div class="logotype col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
 			<div class="field">
 				<label>Логотип</label>
 				<input type="file" name="logotype" class="form-control col-md-12 col-lg-12 logotype" required>
-				
+
 			</div>
 			<div class="preview col-md-12 col-lg-12">
 				<img src="" alt="">
 			</div>
 		</div>
-		<div class="logotype col-md-3 col-lg-3 ">
+		<div class="bg-survey col-md-3 col-lg-3 ">
 			<div class="field">
 				<label>Фон</label>
-				<input type="file" name="logotype" class="form-control col-md-12 col-lg-12 logotype" required>
+				<input type="file" name="bg-survey" class="form-control col-md-12 col-lg-12 bg-survey" required>
 			</div>
 			<div class="preview col-md-12 col-lg-12">
 				<img src="" alt="">
@@ -55,7 +56,7 @@
 			<div class="survey-questions"></div>
 			<div class="submit col-md-2 col-lg-2 col-md-offset-5 col-lg-offset-5">
 				<input type="hidden" name="form_token" value="true">
-				<input type="submit" value="Добавить опрос" class="btn btn-success col-md-12 col-lg-12">
+				<input type="submit" value="Добавить опрос" class="saveSuurvey btn btn-success col-md-12 col-lg-12">
 			</div>
 		</div>
 	</form>

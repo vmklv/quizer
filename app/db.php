@@ -8,7 +8,7 @@ class DB {
 	private $host = 'localhost';
 	private $user = 'root';
 	private $passwd = '';
-	private $dbname = 'project';
+	private $dbname = 'diplom';
 	public $db;
 	private $result;
 

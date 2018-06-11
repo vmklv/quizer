@@ -37,7 +37,7 @@ if(!isset($_GET['survey_id'])) {
 					$saveData = $db->DQ("INSERT INTO `surveys_answers`(`user_id`, `question_id`, `answer`, `survey_id`,`session`) VALUES ('".$user_id."', '".$value."', '".$_POST['answer'][$key]."', '".$fSurvey['id']."','".$session."')");
 				}
 				// таблица с прохождением опроса
-				$selAcceptedSurvey = $db->DQ("INSERT INTO `surveys_successed`(`user_id`, `survey_id`) VALUES ('".$user_id."', '".$fSurvey['id']."')");
+				$selAcceptedSurvey = $db->DQ("INSERT INTO `surveys_successed`(`user_id`, `survey_id`,`creator_id`) VALUES ('".$user_id."', '".$fSurvey['id']."','".$fSurvey['user_id']."')");
 				exit('<script>alert("Вы успешно прошли тест");location.href="index.php";</script>');
 
 			} else {
@@ -86,7 +86,7 @@ $title = 'Главная страница';
 $selSurveys = $db->DQ("SELECT * FROM `surveys` ORDER BY `id` DESC");
 $surveys = '';
 while($fSurveys = $db->DF($selSurveys)) {
-	$surveys .= '<div class="slide"><a href="survey.php?survey_id='.$fSurveys['id'].'"><div class="logo"><img src="img/surveys/'.$fSurveys['id'].'/logo.jpg"><div class="title">'.$fSurveys['title'].'</div></div></a></div>';
+	$surveys .= '<div class="wrapper"><div class="slide"><a href="survey.php?survey_id='.$fSurveys['id'].'"><div class="logo"><img src="img/surveys/'.$fSurveys['id'].'/logo.jpg"><div class="title">'.$fSurveys['title'].'</div></div></a></div></div>';
 }
 $content = str_replace('{{%surveys%}}', $surveys, $content);
 echo $templater->getTemplate($title, $content); // вызываем метод templater и передаём туда заголовок и контент

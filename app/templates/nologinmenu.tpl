@@ -28,7 +28,7 @@
 							</div>
 							<div class="send-btn col-md-12">
 								<input type="hidden" name="form_token" value="true">
-								<input type="submit" class="btn btn-login col-md-12 col-lg-12" value="Войти">
+								<input type="submit" class="btn login-btn col-md-12 col-lg-12" value="Войти">
 							</div>
 						</div>
 					</form>

@@ -64,11 +64,11 @@ class Manage {
 		return $result;
 	}
 
-	function listSurveys() { // список опросов
-		$result = '<a href="manage.php?type=new">Добавить опрос</a>';
+	function listSurveys() { // список опросов class="addNewSurvey"
+		$result = '<div class="addNewSurvey"><a href="manage.php?type=new" class="addbtn btn">Добавить опрос</a><div>';
 		$selSurveys = $this->db->DQ("SELECT * FROM `surveys` WHERE `user_id` = '".$_SESSION['id_user']."'");
 
-		$result .= '<table border="0" class="table">
+		$result .= '<div class="wrapper"><table border="0" class="table">
 		<th>ID</th>
 		<th>Название</th>
 		<th>Количество вопросов</th>
@@ -88,14 +88,14 @@ class Manage {
 				<td>'.$countQuestions.'</td>
 				<td>'.$countSuccessed.'</td>
 				<td>
-				<a href="manage.php?type=delete&delete='.$fSurveys['id'].'" onclick="if(confirm()){return true;}else{return false;}">Удалить</a>
 				<a href="manage.php?type=analitic&id_survey='.$fSurveys['id'].'">Посмотреть ответы</a>
+				<a href="manage.php?type=delete&delete='.$fSurveys['id'].'" onclick="if(confirm()){return true;}else{return false;}"><i class="icon-trash"></i></a>
 				</td>
 			</tr>';
 
 			$i++; // счётчик ID опроса
 		}
-		$result .= '</table>';
+		$result .= '</table></div></div></div>';
 		return $result;
 	}
 

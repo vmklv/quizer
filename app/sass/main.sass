@@ -1,24 +1,25 @@
 //подключенные шрифты
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@font-face
+	font-family: "Roboto"
+  src: url("../fonts/Roboto-Regular.ttf")
+  font-weight: normal
+  font-style: normal
+
+@font-face
+	font-family: "Roboto"
+  src: url("../fonts/Roboto-Bold.ttf")
+  font-weight: bold
+  font-style: normal
 
 //базовые цвета
 $main: #4285f4 //акцентный цвет (синий)
 $bg:	#eee //цвет фона
+$gray: #818a91 //серый
 
-//настройки шрифта
-
-//шапка
-header
-	min-height: 60px
-	background-color: #fff
-	& .nav-header a
-		font-weight: 700
-		color: #818a91
-		font-size: 32px
-		transition: .5s
-	& a:hover
-		text-decoration: none
-		color: $main
+.btn-primary
+	background-color: $main
+	border-color: $main
+	
 
 html, body
 	margin: 0
@@ -26,9 +27,103 @@ html, body
 	background-color: $bg
 	font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif
 
-.container
+//шапка
+header
+	min-height: 60px
 	background-color: #fff
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
 
+.nav-header a
+	font-weight: 700
+	color: $gray
+	font-size: 32px
+	transition: .3s
+	&:hover
+		text-decoration: none
+		color: $main
+
+.img-circle
+	width: 40px
+	
+.nav-notification i
+	margin: 
+		top: 1px
+	color: $gray
+	font-size: 22px
+	transition: .3s
+	&:hover
+		color: $main
+
+//окно нотификаций
+.notification-data
+	.name-noti
+		color: $main
+		font-weight: bold
+		font-size: 14px
+	ul
+		font-size: 12px
+		color: $gray
+		font-weight: bold
+		list-style-type: none
+		padding: 0
+		margin:
+			top: 2px
+			left: 5px
+		li
+			margin: 
+				top: 4px
+
+.reg-btn
+	font-weight: bold
+	&:hover
+		color: #15489F
+	&:active
+		box-shadow: none
+
+.login-btn
+	transition: .3s
+	&:hover
+		background-color: #5a95f5
+		color: #fff
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3)
+
+// .btn-login
+// 	transition: .3s
+// 	&:hover
+// 		background-color: #5a95f5
+// 		color: #fff
+// 		box-shadow: 0 2px 5px rgba(0,0,0,0.3)
+		
+	
+		
+
+//dropdown меню
+.dropdown-menu
+	margin: 
+		left: -50px
+	& li>a:hover
+		color: $main	
+
+
+//белая обертка для блоков
+.wrapper
+	background-color: #fff
+	margin: 
+		top: 15px
+		bottom: 15px
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16)
+	border: 1px solid #ddd
+	border-radius: 4px 4px 0 0
+
+.main
+	height: 100%
+	margin: 
+		bottom: 20px
+// .container
+// 	background-color: #fff
+// 	margin: 
+// 		top: 15px
+// 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16)
 //главная страница
 // .main-card
 // 	min-height: 288px
@@ -70,3 +165,122 @@ html, body
 	.EULA
 		margin: 
 			top: 15px
+
+//главная страница
+.last-surveys
+	font-size: 32px
+	color: $gray
+	margin: 
+		bottom: -10px
+		left: 3px
+
+//управление опросами
+.addNewSurvey
+	margin: 
+		top: 10px
+	background-color: #fafafa
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16)
+	border-radius: 4px 4px 0 0
+	padding: 1px 10px
+
+.addbtn
+	font-weight: bold
+	font-size: 16px
+	width: 100%
+	transition: .3s
+	margin: 
+		top: 10px
+	background-color: $main
+	color: #fff
+	&:hover
+		color: #fff
+		background-color: #1976d2
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16)
+
+.icon-trash
+	font-size: 16px
+	color: $gray
+	&:hover
+		color: #f44336
+
+//редактор опросов
+.private-survey-access
+	display: none
+
+.saveSuurvey
+	margin: 10px
+
+//настройки
+.usersettings
+	input
+		margin: 
+			bottom: 10px
+	padding: 
+		bottom: 10px
+	// label
+	// 	margin: 
+	// 		left: 2px
+
+.email
+	padding: 30px
+
+.avatar-settings
+	text-align: center
+	// width: 200px
+	height: 200px
+	overflow: hidden
+	img
+		width: 200px
+		border-radius: 3%
+
+
+//доступ к опросу
+.access
+	text-align: center
+	h2
+		font-weight: bold
+		color: #818a91
+		margin: 30px
+		font-size: 32px;
+	input
+		margin: 5px
+	.btn
+		margin: 
+			bottom: 20px
+
+//footer
+footer
+	background-color: #fff
+	box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.16)
+
+.links 
+	text-align: left
+	& li
+		list-style-type: none
+		padding: 0
+		margin: 0
+
+.socials
+	text-align: right
+	& a:hover
+		text-decoration: none
+	& i
+		font-size: 24px
+		color: $gray
+		transition: .3s
+	.icon-telegram 
+		&:hover
+			color: #5682a3
+	.icon-medium
+		&:hover
+			color: #02b875
+	.icon-github-circled
+		&:hover
+			color: #24292e
+	.icon-vkontakte
+		&:hover
+			color: #45668e
+	.icon-twitter
+		&:hover
+			color: #1da1f2
+			

@@ -26,6 +26,12 @@ class Templater {
 			// $template = str_replace('{{%enter-auth%}}', $formAuth, $template);
 			$formAuth = file_get_contents('templates/menu.tpl');
 			$template = str_replace('{{%enter-auth%}}', $formAuth, $template);
+			if($fUser['avatar'] == 1) {
+				$avatar = 'img/avatars/'.$_SESSION['id_user'].'/avatar.jpg';
+			} else {
+				$avatar = 'img/avatars/default.png';
+			}
+			$template = str_replace('{{%avatar%}}', $avatar, $template);
 		} else {
 			$formAuth = file_get_contents('templates/enter.tpl');
 			$template = str_replace('{{%enter-auth%}}', $formAuth, $template);

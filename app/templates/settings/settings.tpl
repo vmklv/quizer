@@ -1,4 +1,4 @@
-<div class="wrapper usersettings col-md-10 col-md-offset-1 col-lg-offset-1">
+<div class="wrapper usersettings col-md-12 col-lg-12">
 	<h2>Настройки</h2>
 	<form method="POST" action="" enctype="multipart/form-data">
 		<div class="email col-md-12 col-lg-12">

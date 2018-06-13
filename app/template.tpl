@@ -34,9 +34,9 @@
 	</div>
 	<footer>
 		<div class="container">
-			<div class="col-md-4 col-lg-4">
-				<div class="links">
-					<ul class="footer-menu">
+			<div class="links">
+				<div class="col-md-10 col-lg-10">
+					<ul class="footer-menu list-inline">
 						<li>
 							<p>Навигация</p>
 						</li>
@@ -44,30 +44,28 @@
 							<a href="/">Главная</a>
 						</li>
 						<li>
-							<a href="http://project.com/manage.php">Мои вопросы</a>
+							<a href="/manage.php">Мои вопросы</a>
 						</li>
 						<li>
-							<a href="http://project.com/manage.php?type=new">Создать опрос</a>
+							<a href="/manage.php?type=new">Создать опрос</a>
 						</li>
 						<li>
-							<a href="http://project.com/settings.php">Настройки</a>
+							<a href="/settings.php">Настройки</a>
 						</li>
 					</ul>
 				</div>
+				<div class="helpmail col-md-2 col-lg-2">
+					<!-- <span>Поддержка</span> -->
+					<a href="mailto:help@quizer.dev">help@quizer.dev</a>
+				</div>
 			</div>
-			<div class="col-md-4 col-lg-4">
-
+<div class="copyright col-md-9 col-lg-9">
+				&copy; 2018 Quizer
 			</div>
-			<div class="col-md-4 col-lg-4">
+			<div class="col-md-3 col-lg-3">
 				<div class="socials">
 					<a href="http://t.me/QuizerdevBot">
 						<i class="icon-telegram"></i>
-					</a>
-					<a href="https://medium.com/@markelov">
-						<i class="icon-medium"></i>
-					</a>
-					<a href="https://github.com/vsmarkelov">
-						<i class="icon-github-circled"></i>
 					</a>
 					<a href="http://vk.com/">
 						<i class=" icon-vkontakte"></i>

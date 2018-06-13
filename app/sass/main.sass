@@ -116,6 +116,7 @@ header
 	border-radius: 4px 4px 0 0
 
 .main
+	min-height: calc(100vh - 202px)
 	height: 100%
 	margin: 
 		bottom: 20px
@@ -204,11 +205,46 @@ header
 		color: #f44336
 
 //редактор опросов
-.private-survey-access
-	display: none
+.surveys
+	label
+		margin: 
+			top: 10px
+	input, select
+		margin:
+			bottom: 10px
+
+.actions
+	padding: 5px
+	border-bottom: 1px solid #ddd
+	border-top: 1px solid #ddd
+
+.surveys
+	margin: 
+		top: 20px
+	h2
+		display: inline
+
+.new_question
+	float: right
+
+.first-survey
+	border-bottom: 1px solid #ddd
+
+.privacy-password
+	visibility: hidden
+
+.actions
+	text-align: right	
 
 .saveSuurvey
 	margin: 10px
+
+.submit
+	text-align: center
+	margin:
+		top: 10px
+// .first-survey
+// 	padding: 0
 
 //настройки
 .usersettings
@@ -250,18 +286,46 @@ header
 
 //footer
 footer
+	// height: 120px
 	background-color: #fff
 	box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.16)
 
 .links 
+	font-size: 16px
+	margin: 
+		top: 15px
+		bottom: 55px
 	text-align: left
+	& a
+		color: $gray
+		transition: .3s
+		margin: 
+			right: 5px
+	& a:hover
+		color: $main
+		text-decoration: none
 	& li
 		list-style-type: none
 		padding: 0
 		margin: 0
+	& p
+		color: #333
+		font-weight: bold
+		margin: 
+			right: 10px
+.helpmail
+	text-align: right
+
+.copyright
+	line-height: 65px
+	font-size: 12px
+	color: $gray
 
 .socials
 	text-align: right
+	margin: 
+		top: 15px
+		bottom: 10px
 	& a:hover
 		text-decoration: none
 	& i

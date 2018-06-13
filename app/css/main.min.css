@@ -100,6 +100,8 @@ header {
           border-radius: 4px 4px 0 0; }
 
 .main {
+  min-height: -webkit-calc(100vh - 202px);
+  min-height: calc(100vh - 202px);
   height: 100%;
   margin-bottom: 20px; }
 
@@ -160,11 +162,40 @@ header {
   .icon-trash:hover {
     color: #f44336; }
 
-.private-survey-access {
-  display: none; }
+.surveys label {
+  margin-top: 10px; }
+
+.surveys input, .surveys select {
+  margin-bottom: 10px; }
+
+.actions {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd; }
+
+.surveys {
+  margin-top: 20px; }
+  .surveys h2 {
+    display: inline; }
+
+.new_question {
+  float: right; }
+
+.first-survey {
+  border-bottom: 1px solid #ddd; }
+
+.privacy-password {
+  visibility: hidden; }
+
+.actions {
+  text-align: right; }
 
 .saveSuurvey {
   margin: 10px; }
+
+.submit {
+  text-align: center;
+  margin-top: 10px; }
 
 .usersettings {
   padding-bottom: 10px; }
@@ -201,14 +232,40 @@ footer {
           box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.16); }
 
 .links {
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 55px;
   text-align: left; }
+  .links a {
+    color: #818a91;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    margin-right: 5px; }
+  .links a:hover {
+    color: #4285f4;
+    text-decoration: none; }
   .links li {
     list-style-type: none;
     padding: 0;
     margin: 0; }
+  .links p {
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px; }
+
+.helpmail {
+  text-align: right; }
+
+.copyright {
+  line-height: 65px;
+  font-size: 12px;
+  color: #818a91; }
 
 .socials {
-  text-align: right; }
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 10px; }
   .socials a:hover {
     text-decoration: none; }
   .socials i {

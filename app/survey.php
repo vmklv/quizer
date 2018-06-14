@@ -63,7 +63,7 @@ if(!isset($_GET['survey_id'])) {
 						$answer .= '<input type="hidden" name="question[]" value="'.$fQuestions['id'].'" class="form-control">';
 						break;
 						case 'select':
-						$answersArray = explode('|', $fQuestions['content']);
+						$answersArray = explode(',', $fQuestions['content']);
 						$answer = '<select name="answer[]" class="form-control">';
 						foreach($answersArray AS $value) {
 							$answer .= '<option value="'.$value.'">'.$value.'</option>';

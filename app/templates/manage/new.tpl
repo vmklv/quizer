@@ -23,7 +23,7 @@
 				<img src="" alt="">
 			</div>
 		</div>
-		<div class="bg-survey col-md-4 col-lg-4">
+		<!-- <div class="bg-survey col-md-4 col-lg-4">
 			<div class="field">
 				<label>Фон</label>
 				<input type="file" name="bg-survey" class="form-control col-md-12 col-lg-12 bg-survey" required>
@@ -31,7 +31,7 @@
 			<div class="preview col-md-12 col-lg-12">
 				<img src="" alt="">
 			</div>
-		</div>
+		</div> -->
 		<div class="surveys col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 			<h2>Вопросы</h2>
 			<button type="button" class="new_question btn btn-primary btn-md">Добавить вопрос</button>
@@ -50,7 +50,7 @@
 					</select>
 				</div>
 				<div class="select-answers">
-					<input type="text" name="select-values[]" class="form-control" placeholder="Разделитель |">
+					<input type="text" name="select-values[]" class="form-control" placeholder="Вопросы (через запятую)">
 				</div>
 			</div>
 			<div class="survey-questions"></div>

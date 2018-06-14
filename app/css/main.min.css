@@ -125,11 +125,25 @@ header {
   .registration .EULA {
     margin-top: 15px; }
 
+.regbtn {
+  margin-bottom: 15px; }
+
 .last-surveys {
   font-size: 32px;
   color: #818a91;
   margin-bottom: -10px;
   margin-left: 3px; }
+
+tr {
+  color: #818a91; }
+  tr a {
+    color: #818a91; }
+  tr a:hover {
+    text-decoration: none;
+    color: #4285f4; }
+
+th {
+  background-color: #eee; }
 
 .addNewSurvey {
   margin-top: 10px;
@@ -172,6 +186,9 @@ header {
   padding: 5px;
   border-bottom: 1px solid #ddd;
   border-top: 1px solid #ddd; }
+  .actions span {
+    float: left;
+    line-height: 35px; }
 
 .surveys {
   margin-top: 20px; }
@@ -196,6 +213,16 @@ header {
 .submit {
   text-align: center;
   margin-top: 10px; }
+
+.title-survey {
+  text-align: center; }
+
+.surveys-complite h2 {
+  margin-left: 15px; }
+
+.submit input {
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 .usersettings {
   padding-bottom: 10px; }
@@ -284,3 +311,8 @@ footer {
     color: #45668e; }
   .socials .icon-twitter:hover {
     color: #1da1f2; }
+
+@media screen and (max-width: 768px) {
+  .slick-list img {
+    min-height: 120%;
+    min-width: 300px; } }

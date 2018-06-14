@@ -34,10 +34,11 @@ class Manage {
 			$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
 			$type = htmlspecialchars($_POST['type'], ENT_QUOTES);
 			$privacy = ' ';
-			$privacy_password = ' ';
+			$privacy_password = ($_POST['privacy-password']);
 			$errors = '';
 			if(empty($title)) $errors .= 'Вы ввели название опроса';
 			if(empty($type)) $errors .= 'Вы не выбрали тип опроса';
+			if(!empty($privacy_password)) $privacy .= '1';
 			// проверяем заполненные поля
 			// получаем id нового survey
 			$selLastId = $this->db->DQ("SELECT `id` FROM `surveys` ORDER BY `id` DESC LIMIT 1");

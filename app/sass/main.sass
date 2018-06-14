@@ -166,7 +166,9 @@ header
 	.EULA
 		margin: 
 			top: 15px
-
+.regbtn
+	margin:
+		bottom: 15px
 //главная страница
 .last-surveys
 	font-size: 32px
@@ -176,6 +178,15 @@ header
 		left: 3px
 
 //управление опросами
+tr
+	color: #818a91
+	& a
+		color: $gray
+	& a:hover
+		text-decoration: none
+		color: $main
+th
+	background-color: #eee
 .addNewSurvey
 	margin: 
 		top: 10px
@@ -217,7 +228,9 @@ header
 	padding: 5px
 	border-bottom: 1px solid #ddd
 	border-top: 1px solid #ddd
-
+	& span
+		float: left
+		line-height: 35px
 .surveys
 	margin: 
 		top: 20px
@@ -246,6 +259,19 @@ header
 // .first-survey
 // 	padding: 0
 
+//прохождение опроса
+.title-survey
+	text-align: center
+.surveys-complite
+	h2
+		margin:
+			left: 15px
+.submit
+	input
+		margin: 
+			top: 10px
+			bottom: 10px	
+	
 //настройки
 .usersettings
 	input
@@ -348,3 +374,9 @@ footer
 		&:hover
 			color: #1da1f2
 			
+
+@media screen and (max-width: 768px)
+	.slick-list 
+		img
+			min-height: 120%
+			min-width: 300px

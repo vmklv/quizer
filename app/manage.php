@@ -119,7 +119,7 @@ class Manage {
 		$selSurvey = $this->db->DQ("SELECT * FROM `surveys` WHERE `id` = '".$id."'");
 		$fSurvey = $this->db->DF($selSurvey);
 		$this->result = '<h2>Просмотр статистики ('.$fSurvey['title'].')</h2>';
-		$this->result .= '<table border="0" class="table"><tr>';
+		$this->result .= '<div class="wrapper"><table border="0" class="table"><tr>';
 		$selQuestions = $this->db->DQ("SELECT * FROM `surveys_questions` WHERE `survey_id` = '".$fSurvey['id']."' ORDER BY `id` ASC");
 		// достаём вопросы
 		while($fQuestions = $this->db->DF($selQuestions)) {
@@ -145,7 +145,7 @@ class Manage {
 			}
 			$this->result .= '</tr>';
 		}
-		$this->result .= '</table>';
+		$this->result .= '</table></div>';
 		return $this->result;
 	}
 }

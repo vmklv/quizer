@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	// добавление нового вопроса
 	$('.new_question').click(function() {
-		$('.survey-questions').append('<div class="question"><div class="name"><label>Название вопроса</label><input type="text" name="title-question[]" class="form-control" placeholder="Название вопроса" required></div><div class="type-question"><label>Тип вопроса</label><select name="type-question[]" class="form-control type-question-survey" required><option value="text">Текст</option><option value="number">Число</option><option value="select">Выпадающий список</option></select></div><div class="select-answers"><input type="text" name="select-values[]" class="form-control" placeholder="Разделитель |"></div><div class="actions"><span>Действия: </span><button type="button" class="btn btn-danger btn-md btn-delete-question">Удалить</button></div>');
+		$('.survey-questions').append('<div class="question"><div class="name"><label>Название вопроса</label><input type="text" name="title-question[]" class="form-control" placeholder="Название вопроса" required></div><div class="type-question"><label>Тип вопроса</label><select name="type-question[]" class="form-control type-question-survey" required><option value="text">Текст</option><option value="number">Число</option><option value="select">Выпадающий список</option></select></div><div class="select-answers"><input type="text" name="select-values[]" class="form-control" placeholder="Вопросы (через запятую)"></div><div class="actions"><span>Действия: </span><button type="button" class="btn btn-danger btn-md btn-delete-question">Удалить</button></div>');
 	});
 
 	// удаление вопроса
